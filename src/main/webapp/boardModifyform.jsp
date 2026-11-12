@@ -31,7 +31,7 @@ try{
 	  conn = DriverManager.getConnection(url,username,password);
 	  	  
 	  pstmt = conn.prepareStatement(sql2);
-	  pstmt.setString(1, "viewNum");
+	  pstmt.setString(1, viewNum);
 	  rs = pstmt.executeQuery(); 
 	 
 	  if(rs.next()){
@@ -64,19 +64,23 @@ try{
 	          conn.close();
 	      }
 	      }catch(Exception e){
-	      e.printStackTrace();
+	     
 	      }
           }
-
 %>
   <h2> 글 내용수정하기</h2>
   <hr>
-  <form>
+  <form action="boardModifyOk.jsp">
+  <input type="hidden" name="bnum" value="${boardDto.bnum}">
   번호: ${boardDto.bnum}<br><br>
   작성자: ${boardDto.bwriter}<br><br>
   제목: <input type="text" name="btitle" value="${boardDto.btitle}" size="50"><br><br>
   내용: <textarea rows= "10" cols="50" name="bcontent" value="${boardDto.bcontent}"></textarea><br><br>
   <input type="submit" name="수정완료">
+  <!-- 하이퍼링크 버튼 -->
+  <!-- <input type="button" name="취소" onclick="location.href='boardList.jsp'">-->
+  <input type="button" name="취소" onclick="history.go(-1)">
+  <!-- 뒤로가기 버튼 -->
   </form>
   
 </body>

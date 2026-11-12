@@ -14,6 +14,7 @@
      작성자: <input type="text" name="bwriter"><br><br>
      글내용:<textarea rows="10" cols="50" name="bcontent"></textarea>
       <input type="submit" value="글등록">
+      <input type="button" value="취소" onclick="history.go(-1)">
 </form>
 
 </body>

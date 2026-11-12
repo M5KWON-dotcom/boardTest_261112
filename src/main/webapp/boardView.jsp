@@ -36,12 +36,12 @@ try{
 	  conn = DriverManager.getConnection(url,username,password);
 	  
 	  pstmt1 = conn.prepareStatement(sql1);
-	  pstmt1.setString(1, "viewNum");
+	  pstmt1.setString(1,viewNum);
 	  pstmt1.executeUpdate(); 
 	  
 	  
 	  pstmt2 = conn.prepareStatement(sql2);
-	  pstmt2.setString(1, "viewNum");
+	  pstmt2.setString(1, viewNum);
 	  rs = pstmt2.executeQuery(); 
 	 
 	  if(rs.next()){
@@ -57,7 +57,7 @@ try{
 	      }else{
 	    	  System.out.println("존재하지 않는 글입니다.");
 	      }
-	      request.setAttribute("boardDto", bDto);
+	          request.setAttribute("boardDto", bDto);
 	  
           }catch(Exception e){
 	      e.printStackTrace();
@@ -73,27 +73,26 @@ try{
 	    	  if(pstmt2 != null){
 				  pstmt2.close();
 		      }
-		  if(conn !=null){
+		      if(conn !=null){
 	          conn.close();
 	      }
 	      }catch(Exception e){
-	      e.printStackTrace();
+	      
 	      }
           }
-
 %>
-  <h2> 게시판 글 내용보기</h2>
+ <h2>게시판 글 내용보기</h2>
+	<hr>
+	<p>번호: ${boardDto.bnum}</p>
+	<p>조회수: ${boardDto.bhit}</p>
+	<p>제목: ${boardDto.btitle}</p>
+	<p>내용: ${boardDto.bcontent}</p>
+	<p>작성자: ${boardDto.bwriter}</p>
+	<p>작성일: ${boardDto.bdate}</p>
   <hr>
-  <p>번호: ${boardDto.bnum}</p>
-  <p>조회수: ${boardDto.bhit}</p>
-  <p>제목: ${boardDto.btitle}</p>
-  <p>내용: ${boardDto.bcontent}</p>
-  <p>작성자: ${boardDto.bwriter}</p>
-  <p>작성일: ${boardDto.bdate}</p>
-  <hr>
-  <a href="boardList.jsp">글목록</a>
-  <a href="#">글수정</a>
-  <a href="#">글삭제</a>
+  <input type="button" name="글목록" onclick="location.href='boardList.jsp'">
+  <input type="button" name="글수정" onclick="location.href='boardModifyform.jsp'">
+  <input type="button" name="글삭제" onclick="location.href='#'">
   
 
 </body>

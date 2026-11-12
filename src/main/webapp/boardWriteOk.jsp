@@ -55,9 +55,10 @@
     	          conn.close();
     	      }
     	  }catch(Exception e){
-        	  e.printStackTrace();
+        	
     	  }
       }
+      response.sendRedirect("boardList.jsp"); //글목록 보기로 강제 이동
 %>
 
 </body>
