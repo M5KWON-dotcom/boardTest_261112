@@ -41,7 +41,7 @@ try{
 	  
 	  
 	  pstmt2 = conn.prepareStatement(sql2);
-	  pstmt2.setString(1, viewNum);
+	  pstmt2.setString(1,viewNum);
 	  rs = pstmt2.executeQuery(); 
 	 
 	  if(rs.next()){
@@ -90,9 +90,9 @@ try{
 	<p>작성자: ${boardDto.bwriter}</p>
 	<p>작성일: ${boardDto.bdate}</p>
   <hr>
-  <input type="button" name="글목록" onclick="location.href='boardList.jsp'">
-  <input type="button" name="글수정" onclick="location.href='boardModifyform.jsp'">
-  <input type="button" name="글삭제" onclick="location.href='#'">
+  <input type="button" value="글목록" onclick="location.href='boardList.jsp'">
+  <input type="button" value="글수정" onclick="location.href='boardModifyform.jsp?bnum=${boardDto.bnum}'">
+  <input type="button" value="글삭제" onclick="location.href='boardDelete.jsp?bnum=${boardDto.bnum}'">
   
 
 </body>

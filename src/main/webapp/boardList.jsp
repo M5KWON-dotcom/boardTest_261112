@@ -84,7 +84,7 @@
     <tr>
          <td>${bDto.bnum}</td>
          <td>
-         <a href="boardView.jsp? bnum=${bDto.bnum}">
+         <a href="boardView.jsp?bnum=${bDto.bnum}">
          <c:choose>
             <c:when test="${fn:length(bDto.btitle)>20}">
                      ${fn:substring (bDto.btitle,0,20)}...
